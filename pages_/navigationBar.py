@@ -1,10 +1,13 @@
 from selenium.webdriver.common.by import By
+from pages_.basePage import BasePage
 
 
-class NavigationBar():
+class NavigationBar(BasePage):
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
+        self._cartButtonLocator = (By.ID, "nav-cart-count-container")
+
     def click_to_cart_button(self):
-        cartButtonElement = self.driver.find_element(By.ID, "nav-cart-text-container")
-        cartButtonElement.click()
+        cartButtonElement = self.driver.find_element(self._cartButtonLocator)
+        self._click(cartButtonElement)
 

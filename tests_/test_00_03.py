@@ -1,6 +1,4 @@
 import unittest
-
-
 class Test_03(unittest.TestCase):
 
     @classmethod

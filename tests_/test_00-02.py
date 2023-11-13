@@ -12,7 +12,13 @@ driver.get("https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid
 
 
 loginPageObj = LoginPage(driver)
+if loginPageObj._get_title() != "Amazon sign-In":
+    print("Error: Wrong Page Title")
+    exit(3)
+
+
 loginPageObj.fill_username_field("lilmankan@gmail.com")
+loginPageObj.validate_continue_button_text()
 loginPageObj.click_to_continue_button()
 loginPageObj.fill_password_field("amazonlilit2023@")
 loginPageObj.click_to_signin_button()
